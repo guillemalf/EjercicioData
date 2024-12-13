@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -167,7 +168,9 @@ public class TestFecha {
     @Test
     public void testMostrarFechaDia1Mes1FormatoES() {
 
-        String textoFechaPorDefectoFormatoES = "01-01-1970";
+        LocalDate fechaActual = LocalDate.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String textoFechaPorDefectoFormatoES = fechaActual.format(formato);
         Data fechaPorDefecto = new Data();
         fechaPorDefecto.mostrarEnFormatES();
         String salida = baos.toString();
@@ -177,7 +180,9 @@ public class TestFecha {
     @Test
     public void testMostrarFechaDia1Mes1FormatoGB() {
 
-        String textoFechaPorDefectoFormatoGB = "1970-01-01";
+        LocalDate fechaActual = LocalDate.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String textoFechaPorDefectoFormatoGB = fechaActual.format(formato);
         Data fechaPorDefecto = new Data();
         fechaPorDefecto.mostrarEnFormatGB();
         String salida = baos.toString();
@@ -191,7 +196,7 @@ public class TestFecha {
         Data fecha = new Data(21,3,1998);
         fecha.mostrarEnFormatText();
         String salida = baos.toString();
-        assertTrue(salida.contains(textoFechaFormatoGB), "No se está formateando correctamente la fecha 21/03/1998 en formato Texto. Debería mostrarse como " + textoFechaFormatoGB);
+        assertTrue(salida.contains(textoFechaFormatoGB), salida+"No se está formateando correctamente la fecha 21/03/1998 en formato Texto. Debería mostrarse como " + textoFechaFormatoGB);
     }
 
     @Test
@@ -207,11 +212,13 @@ public class TestFecha {
     @Test
     public void testMostrarFechaDia20Mes10FormatoES() {
 
-        String textoFechaPorDefectoFormatoES = "01-01-1970";
+        LocalDate fechaActual = LocalDate.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String textoFechaPorDefectoFormatoES = fechaActual.format(formato);
         Data fechaPorDefecto = new Data();
         fechaPorDefecto.mostrarEnFormatES();
         String salida = baos.toString();
-        assertTrue(salida.contains(textoFechaPorDefectoFormatoES), "No se está formateando correctamente la fecha por defecto en formato Español. Debería mostrarse como " + textoFechaPorDefectoFormatoES);
+        assertTrue(salida.contains(textoFechaPorDefectoFormatoES), salida+"No se está formateando correctamente la fecha por defecto en formato Español. Debería mostrarse como " + textoFechaPorDefectoFormatoES);
     }
 
     @Test
@@ -258,8 +265,14 @@ public class TestFecha {
     
     @Test
     public void testGetDiasDeDiferencia() {
-        assertEquals(0, new Data().getDiesDeDiferencia(new Data(12,12,2020)), "Días de diferencia incorrectos");
+        assertEquals(1462, new Data(13,12,2024).getDiesDeDiferencia(new Data(12,12,2020)), "Entre el día 12/12/2020 y el 13/12/2024 hay una diferencia de 1462 días");
         
+    }
+    
+     @Test
+    public void testEsPosteriorA() {
+        assertTrue(new Data(13,12,2024).esPosteriorA(new Data(12,12,2024)), "Las fecha 13/12/2024 no se detecta como posterior a la fecha 12/12/2024");
+        assertFalse(new Data(12,12,2022).esPosteriorA(new Data(13,12,2024)), "Las fecha 13/12/2024 no se detecta como posterior a la fecha 12/12/2020");
     }
 
 

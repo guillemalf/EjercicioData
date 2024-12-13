@@ -4,6 +4,9 @@
  */
 package prog.cipfpbatoi;
 
+import java.util.Calendar;
+import java.util.StringTokenizer;
+
 /**
  *
  * @author batoi
@@ -19,7 +22,6 @@ public class Data {
      *  Inicializa una fecha a la fecha del sistema
      */
     public Data() {
-        
     }
 
     /**
@@ -29,32 +31,16 @@ public class Data {
      * @param any
      */
     public Data(int dia, int mes, int any) {
-        
     }
 
     /**
      * Inicializa la fecha a partir de otra pasada en formato String dd/mm/yyyy
      *
-     * Deberemos trocearlas de forma que asignemos el día més y año a cada uno de los atributos
+     * Deberemos trocearlas de forma que asignemos el día més y año a cada uno de los atributoe
      * @param fecha
      */
     public Data(String fecha) {
-        
     }
-
-    public int getDia() {
-        return dia;
-    }
-
-    public int getMes() {
-        return mes;
-    }
-
-    public int getAny() {
-        return any;
-    }
-    
-    
 
     /**
      * Modifica la fecha actual a partir de los datos pasados como argumento
@@ -63,7 +49,7 @@ public class Data {
      * @param any
      */
     public void set(int dia, int mes, int any) {
-       
+        
     }
 
     /**
@@ -77,24 +63,48 @@ public class Data {
     }
 
     /**
+     * Devuelve el día de la semana que representa por la Data actual
+     * @return @dia
+     */
+    public int getDia() {
+        return this.dia;
+    }
+
+    /**
+     * Devuelve el mes que representa la Data actual
+     * @return @mes
+     */
+    public int getMes(){
+        return this.mes;
+    }
+
+    /**
+     * Devuelve el año que representa la Data actual
+     * @return @mes
+     */
+    public int getAny(){
+        return this.any;
+    }
+
+    /**
      * Muestra por pantalla la fecha en formato español dd-mm-yyyy
      */
     public void mostrarEnFormatES()  {
-       
+        
     }
 
     /**
      * Muestra por pantalla la fecha en formato inglés yyyy-mm-dd
      */
     public void mostrarEnFormatGB() {
-       
+        
     }
 
     /**
      * Muestra por pantalla la fecha en formato texto dd-mmmmm-yyyy
      */
     public void mostrarEnFormatText() {
-       
+        
     }
 
     /**
@@ -115,7 +125,7 @@ public class Data {
     public String getDiaSetmana() {
         return null;
     }
-   
+    
     /**
      * Solo Festivo sábado o domingo
      * @return boolean
@@ -130,7 +140,10 @@ public class Data {
      */
     public int getNumeroSetmana() {
         return -1;
+
     }
+
+
 
     /**
      * Crea una nueva fecha con un número de días adicionales a la fecha actual
@@ -139,6 +152,7 @@ public class Data {
      * @return
      */
     public Data afegir(long numDias) {
+
         return null;
     }
 
@@ -160,7 +174,7 @@ public class Data {
         return false;
     }
 
-   
+    
     /** Devuelve el valor absoluto de la diferencia de dias entre la fecha actual y la proporcionada
      * 
      * @param data
@@ -198,6 +212,7 @@ public class Data {
      *
      */
     public static int getDiesMes(int mes, int any) {
+
         return -1;
     }
 
@@ -208,8 +223,6 @@ public class Data {
      * @return int total dias any en curso
      */
     public static int getDiesAny(int any){
-        return -1; 
+        return -1;
     }
-
-    
 }
