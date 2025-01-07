@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestFecha {
+public class TestData {
 
     private PrintStream oldOut;
     private ByteArrayOutputStream baos;

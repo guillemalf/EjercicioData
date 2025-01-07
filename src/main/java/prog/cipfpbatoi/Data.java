@@ -4,8 +4,6 @@
  */
 package prog.cipfpbatoi;
 
-import java.util.Calendar;
-import java.util.StringTokenizer;
 
 /**
  *
@@ -142,8 +140,6 @@ public class Data {
         return -1;
 
     }
-
-
 
     /**
      * Crea una nueva fecha con un número de días adicionales a la fecha actual
