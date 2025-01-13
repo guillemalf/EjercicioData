@@ -56,12 +56,12 @@ public class Data {
      * actual.
      * @return
      */
-    public Data clone() {
+    public Data copy() {
         return null;
     }
 
     /**
-     * Devuelve el día de la semana que representa por la Data actual
+     * (Ya implementado) Devuelve el día de la semana que representa por la Data actual
      * @return @dia
      */
     public int getDia() {
@@ -69,7 +69,7 @@ public class Data {
     }
 
     /**
-     * Devuelve el mes que representa la Data actual
+     * (Ya implementado) Devuelve el mes que representa la Data actual
      * @return @mes
      */
     public int getMes(){
@@ -77,7 +77,7 @@ public class Data {
     }
 
     /**
-     * Devuelve el año que representa la Data actual
+     * (Ya implementado) Devuelve el año que representa la Data actual
      * @return @mes
      */
     public int getAny(){
@@ -193,6 +193,7 @@ public class Data {
      * Indica si el año pasado como argumento es bisiesto
      * Un año es bisiesto si es divisible por 4 a su vez 100 por 400
      *
+     * @param any
      * @return boolean
      */
     public static boolean isBisiesto(int any){

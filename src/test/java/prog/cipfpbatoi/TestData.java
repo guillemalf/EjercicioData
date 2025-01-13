@@ -74,7 +74,7 @@ public class TestData {
     public void testClone() {
         int dia = 4; int mes = 9; int anyo = 2020;
         Data fecha = new Data(dia, mes, anyo);
-        Data fechaClon = fecha.clone();
+        Data fechaClon = fecha.copy();
 
         assertTrue(fechaClon.getDia() == dia && fechaClon.getMes() == mes && fechaClon.getAny() == anyo, "La fecha clonada y la fecha original no contienen la misma información");
     }
