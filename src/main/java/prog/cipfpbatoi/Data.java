@@ -143,6 +143,9 @@ public class Data {
      * @return boolean
      */
     public boolean isIgual(Data fecha) {
+        if(this.dia==fecha.dia&&this.mes==fecha.mes&&this.any==fecha.any){
+            return true;
+        }
         return false;
     }
 
