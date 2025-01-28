@@ -4,6 +4,9 @@
  */
 package prog.cipfpbatoi;
 
+import java.util.Calendar;
+import java.util.StringTokenizer;
+
 
 /**
  *
@@ -20,8 +23,13 @@ public class Data {
      *  Inicializa una fecha a la fecha del sistema
      */
     public Data() {
+        Calendar fecha = Calendar.getInstance();
+        this.dia = fecha.get(Calendar.DATE);
+        this.dia = fecha.get(Calendar.MONTH);
+        this.dia = fecha.get(Calendar.YEAR);
     }
-
+        
+        
     /**
      *  Inicializa la fecha a partir de los parámetros recibidos
      * @param dia
@@ -29,6 +37,9 @@ public class Data {
      * @param any
      */
     public Data(int dia, int mes, int any) {
+        this.dia=dia;
+        this.mes=mes;
+        this.any=any;
     }
 
     /**
@@ -38,8 +49,14 @@ public class Data {
      * @param fecha
      */
     public Data(String fecha) {
+        StringTokenizer separador = new StringTokenizer(fecha, "/");
+        this.dia=Integer.parseInt(separador.nextToken());
+        this.mes=Integer.parseInt(separador.nextToken());
+        this.any=Integer.parseInt(separador.nextToken());
+            
+        
     }
-
+        
     /**
      * Modifica la fecha actual a partir de los datos pasados como argumento
      * @param dia
@@ -47,7 +64,9 @@ public class Data {
      * @param any
      */
     public void set(int dia, int mes, int any) {
-        
+        this.dia=dia;
+        this.mes=mes;
+        this.any=any;
     }
 
     /**
@@ -57,7 +76,8 @@ public class Data {
      * @return
      */
     public Data copy() {
-        return null;
+        Data datos = new Data(this.dia,this.mes,this.any);
+        return datos;
     }
 
     /**
