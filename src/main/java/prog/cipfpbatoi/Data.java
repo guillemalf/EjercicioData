@@ -253,7 +253,23 @@ public class Data {
      * @return 
      */
     public boolean esPosteriorA(Data data) {
+        
+        
+        
+        
+        
+        if (this.any>data.any){
+            return true;
+        }
+        else if(this.any>=data.any&&this.mes>data.mes){
+            return true;
+        }
+        else if (this.any>=data.any&&this.mes>=data.mes&&this.dia>data.dia){
+        return true;
+        }
+        else{
         return false;
+        }
     }
 
     /**
@@ -389,4 +405,54 @@ public class Data {
       
         
     }
+        private int getDiesTranscorregutsEnAny(){
+            boolean bisiesto=isBisiesto(any);
+            switch(mes){
+            case 1 -> {
+                return 31;//enero
+            }
+            case  2 -> {
+                
+                if (bisiesto){
+                    return 29;
+                }               //febrero
+                else{
+                    return 28;
+                }
+                        }
+            case 3 -> {
+                return 31;//marzo
+                        }
+            case 4 -> {
+                return 30;//abril
+                        }
+            case 5 -> {
+                return 31;//mayo
+                        }
+            case 6 -> {
+                return 30;//junio
+                        }
+            case 7 -> {
+                return 31;//julio
+                        }
+            case 8 -> {
+                return 31;//agosto
+                        }
+            case 9 -> {
+                return 30;//septiembre
+                        }
+            case 10 -> {
+                return 31;//octubre
+                        }
+            case 11 -> {
+                return 30;//noviembre
+                        }
+            case 12 -> {
+                return 31;//diciembre
+                        }
+}
+                    
+                    
+            return 0;
+        }
 }
