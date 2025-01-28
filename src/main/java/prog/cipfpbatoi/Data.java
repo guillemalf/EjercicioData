@@ -132,9 +132,21 @@ public class Data {
      * Muestra por pantalla la fecha en formato texto dd-mmmmm-yyyy
      */
     public void mostrarEnFormatText() {
-        
+        switch(this.mes){
+            case 1 -> System.out.println(this.dia+"-gener-"+this.any);
+            case 2 -> System.out.println(this.dia+"-febrer-"+this.any);
+            case 3 -> System.out.println(this.dia+"-març-"+this.any);
+            case 4 -> System.out.println(this.dia+"-abril-"+this.any);
+            case 5 -> System.out.println(this.dia+"-maig-"+this.any);
+            case 6 -> System.out.println(this.dia+"-juny-"+this.any);
+            case 7 -> System.out.println(this.dia+"-juliol-"+this.any);
+            case 8 -> System.out.println(this.dia+"-agost-"+this.any);
+            case 9 -> System.out.println(this.dia+"-setembre"+this.any);
+            case 10 -> System.out.println(this.dia+"-octubre-"+this.any);
+            case 11 -> System.out.println(this.dia+"-novembre-"+this.any);
+            case 12 -> System.out.println(this.dia+"-desembre-"+this.any);  
+        }
     }
-
     /**
      * Retorna un booleano indicando si la fecha del objeto es igual a la fecha pasada como
      * argumento
