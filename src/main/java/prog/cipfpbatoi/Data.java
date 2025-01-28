@@ -25,8 +25,8 @@ public class Data {
     public Data() {
         Calendar fecha = Calendar.getInstance();
         this.dia = fecha.get(Calendar.DATE);
-        this.dia = fecha.get(Calendar.MONTH);
-        this.dia = fecha.get(Calendar.YEAR);
+        this.mes = fecha.get(Calendar.MONTH)+1;
+        this.any = fecha.get(Calendar.YEAR);
     }
         
         
@@ -108,14 +108,24 @@ public class Data {
      * Muestra por pantalla la fecha en formato español dd-mm-yyyy
      */
     public void mostrarEnFormatES()  {
-        
+        if(this.mes>0&&this.mes<10){
+            System.out.println(this.dia+"/0"+this.mes+"/"+this.any);
+        }
+        else{
+            System.out.println(this.dia+"/"+this.mes+"/"+this.any);
+        }
     }
 
     /**
      * Muestra por pantalla la fecha en formato inglés yyyy-mm-dd
      */
     public void mostrarEnFormatGB() {
-        
+        if(this.mes>0&&this.mes<10){
+            System.out.println(this.any+"-0"+this.mes+"-"+this.dia);
+        }
+        else{
+            System.out.println(this.any+"-"+this.mes+"-"+this.dia);
+        }
     }
 
     /**
