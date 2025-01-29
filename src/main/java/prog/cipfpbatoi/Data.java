@@ -166,7 +166,17 @@ public class Data {
      * @return String
      */
     public String getDiaSetmana() {
-        return null;
+        Calendar fecha = Calendar.getInstance();
+        switch(fecha.get(Calendar.DAY_OF_WEEK)){
+            case 1 -> {return "diumenge";}
+            case 2 -> {return "dilluns";}
+            case 3 -> {return "dimarts";}
+            case 4 -> {return "dimecres";}
+            case 5 -> {return "dijous";}
+            case 6 -> {return "divendres";}
+            case 7 -> {return "dissabte";}
+        }
+        return "";
     }
     
     /**
@@ -174,7 +184,12 @@ public class Data {
      * @return boolean
      */
     public boolean isFestiu() {
-        return false;
+        Calendar fecha = Calendar.getInstance();
+        switch(fecha.get(Calendar.DAY_OF_WEEK)){
+            case 1 -> {return true;}
+            case 7 -> {return true;}
+        }
+        return false ;
     }
 
     /**
@@ -242,6 +257,9 @@ public class Data {
      * @return boolean
      */
     public static boolean isBisiesto(int any){
+        if(any%4==0&&any%100!=0 || any%4==0&&any%100==0&&any%400==0){
+            return true;
+        }
         return false;
     }
 
