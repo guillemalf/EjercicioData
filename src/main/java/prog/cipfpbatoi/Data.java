@@ -132,19 +132,26 @@ public class Data {
      * Muestra por pantalla la fecha en formato texto dd-mmmmm-yyyy
      */
     public void mostrarEnFormatText() {
+        String dia;
+        if(this.dia<10&&this.dia>0){
+            dia ="0"+this.dia;
+        }
+        else{
+            dia=""+this.dia;
+        }
         switch(this.mes){
-            case 1 -> System.out.println(this.dia+"-gener-"+this.any);
-            case 2 -> System.out.println(this.dia+"-febrer-"+this.any);
-            case 3 -> System.out.println(this.dia+"-març-"+this.any);
-            case 4 -> System.out.println(this.dia+"-abril-"+this.any);
-            case 5 -> System.out.println(this.dia+"-maig-"+this.any);
-            case 6 -> System.out.println(this.dia+"-juny-"+this.any);
-            case 7 -> System.out.println(this.dia+"-juliol-"+this.any);
-            case 8 -> System.out.println(this.dia+"-agost-"+this.any);
-            case 9 -> System.out.println(this.dia+"-setembre"+this.any);
-            case 10 -> System.out.println(this.dia+"-octubre-"+this.any);
-            case 11 -> System.out.println(this.dia+"-novembre-"+this.any);
-            case 12 -> System.out.println(this.dia+"-desembre-"+this.any);  
+            case 1 -> System.out.println(dia+"-gener-"+this.any);
+            case 2 -> System.out.println(dia+"-febrer-"+this.any);
+            case 3 -> System.out.println(dia+"-març-"+this.any);
+            case 4 -> System.out.println(dia+"-abril-"+this.any);
+            case 5 -> System.out.println(dia+"-maig-"+this.any);
+            case 6 -> System.out.println(dia+"-juny-"+this.any);
+            case 7 -> System.out.println(dia+"-juliol-"+this.any);
+            case 8 -> System.out.println(dia+"-agost-"+this.any);
+            case 9 -> System.out.println(dia+"-setembre"+this.any);
+            case 10 -> System.out.println(dia+"-octubre-"+this.any);
+            case 11 -> System.out.println(dia+"-novembre-"+this.any);
+            case 12 -> System.out.println(dia+"-desembre-"+this.any);  
         }
     }
     /**
@@ -278,13 +285,13 @@ public class Data {
                 return 31;//enero
             }
             case  2 -> {
+                
                 if (bisiesto){
                     return 29;
                 }               //febrero
                 else{
                     return 28;
                 }
-                
                         }
             case 3 -> {
                 return 31;//marzo
@@ -337,5 +344,49 @@ public class Data {
         }
             
             return dias;
+    }
+        private String getMesEnFormarText(){//al poner estatic no podemos usar las varibles this.nombre
+        switch(this.mes){
+            case 1 -> {
+                return "gener";
+                }
+            case 2 -> {
+                return "febrer";
+                }
+            case 3 -> {
+                return "març";
+                }
+            case 4 -> {
+                return "abril";
+                }
+            case 5 -> {
+                return "maig";
+                }
+            case 6 -> {
+                return "june";
+                }
+            case 7 -> {
+                return "juliol";
+                }
+            case 8 -> {
+                return "agost";
+                }
+            case 9 -> {
+                return "setembre";
+                }
+            case 10 -> {
+                return "octubre";
+                }
+            case 11 -> {
+                return "novembre";
+                }
+            case 12 -> {
+                return "desembre";
+                }
+    }
+    return "";
+        
+      
+        
     }
 }
