@@ -173,15 +173,21 @@ public class Data {
      * @return String
      */
     public String getDiaSetmana() {
-        Calendar fecha = Calendar.getInstance();
-        switch(fecha.get(Calendar.DAY_OF_WEEK)){
-            case 1 -> {return "diumenge";}
-            case 2 -> {return "dilluns";}
-            case 3 -> {return "dimarts";}
-            case 4 -> {return "dimecres";}
-            case 5 -> {return "dijous";}
-            case 6 -> {return "divendres";}
-            case 7 -> {return "dissabte";}
+        switch(getDiesTranscorregutOrigen()%7){
+            case 0:
+                return "diumenge";
+            case 1:
+                return "dilluns";
+            case 2:
+                return "dimarts";
+            case 3:
+                return "dimecres";
+            case 4:
+                return "dijous";
+            case 5:
+                return "divendres";
+            case 6:
+                return "dissabte";          
         }
         return "";
     }
@@ -191,22 +197,22 @@ public class Data {
      * @return boolean
      */
     public boolean isFestiu() {
-        Calendar fecha = Calendar.getInstance();
-        switch(fecha.get(Calendar.DAY_OF_WEEK)){
-            case 1 -> {return true;}
-            case 7 -> {return true;}
+        switch(getDiesTranscorregutOrigen()%7){
+            case 0,6:
+                return true;       
         }
-        return false ;
+        return false;
     }
+    
 
     /**
      * Obtiene el número de la semana del año de la fecha actual
      * @return 
      */
     public int getNumeroSetmana() {
-        return -1;
-
+        return 0;
     }
+        //falta por hacer
 
     /**
      * Crea una nueva fecha con un número de días adicionales a la fecha actual
@@ -244,7 +250,23 @@ public class Data {
      * @return 
      */
     public long getDiesDeDiferencia(Data data) {
-        return -1L;
+        long diasTotaless=0;
+            for (int i = data.any; i < this.any; i++) {
+                
+                if(i==this.any){
+                    break;
+                }
+                diasTotaless+=getDiesAny(i);
+            }
+            for (int i = data.mes; i < this.mes+1; i++) {
+                if (i==data.mes){
+                    diasTotaless+=this.dia-data.dia;
+                }
+                else{
+                    diasTotaless+=getDiesMes(i, data.any);
+                }
+            }
+            return diasTotaless;
     }
     
     /**
@@ -253,11 +275,6 @@ public class Data {
      * @return 
      */
     public boolean esPosteriorA(Data data) {
-        
-        
-        
-        
-        
         if (this.any>data.any){
             return true;
         }
@@ -296,51 +313,24 @@ public class Data {
      */
     public static int getDiesMes(int mes, int any) {
         boolean bisiesto=isBisiesto(any);
-        switch(mes){
-            case 1 -> {
-                return 31;//enero
-            }
-            case  2 -> {
-                
+        int diasMes=0;
+        switch (mes){
+            case 1,3,5,7,8,10,12://31 días
+                diasMes=31;
+                break;
+            
+            case 11,4,6,9://30 días
+                diasMes=30;
+                break;
+            case 2://febrero 28 o  29 depende
                 if (bisiesto){
-                    return 29;
-                }               //febrero
-                else{
-                    return 28;
+                    diasMes=29;
                 }
-                        }
-            case 3 -> {
-                return 31;//marzo
-                        }
-            case 4 -> {
-                return 30;//abril
-                        }
-            case 5 -> {
-                return 31;//mayo
-                        }
-            case 6 -> {
-                return 30;//junio
-                        }
-            case 7 -> {
-                return 31;//julio
-                        }
-            case 8 -> {
-                return 31;//agosto
-                        }
-            case 9 -> {
-                return 30;//septiembre
-                        }
-            case 10 -> {
-                return 31;//octubre
-                        }
-            case 11 -> {
-                return 30;//noviembre
-                        }
-            case 12 -> {
-                return 31;//diciembre
-                        }
-}
-        return -1;
+                else{
+                    diasMes=28;
+                }
+        }
+        return diasMes;
     }
 
     /**
@@ -402,57 +392,38 @@ public class Data {
     }
     return "";
         
-      
-        
     }
-        private int getDiesTranscorregutsEnAny(){
-            boolean bisiesto=isBisiesto(any);
-            switch(mes){
-            case 1 -> {
-                return 31;//enero
-            }
-            case  2 -> {
-                
-                if (bisiesto){
-                    return 29;
-                }               //febrero
-                else{
-                    return 28;
+        private static int getDiesTranscorregutsEnAny(int mes,int dia,int año){
+        int diasTotales=0;
+            for (int i = 1; i < 13; i++) {//for para los meses
+                if(i==mes){
+                diasTotales+=dia;
+                break;
                 }
-                        }
-            case 3 -> {
-                return 31;//marzo
-                        }
-            case 4 -> {
-                return 30;//abril
-                        }
-            case 5 -> {
-                return 31;//mayo
-                        }
-            case 6 -> {
-                return 30;//junio
-                        }
-            case 7 -> {
-                return 31;//julio
-                        }
-            case 8 -> {
-                return 31;//agosto
-                        }
-            case 9 -> {
-                return 30;//septiembre
-                        }
-            case 10 -> {
-                return 31;//octubre
-                        }
-            case 11 -> {
-                return 30;//noviembre
-                        }
-            case 12 -> {
-                return 31;//diciembre
-                        }
-}
-                    
-                    
-            return 0;
+                else{
+                diasTotales+=getDiesMes(i, 2020);
+                }
+            }
+            return diasTotales;          
+    }
+ 
+        private int getDiesTranscorregutOrigen(){
+            int diasTotales=0;
+            for (int i = 1; i < this.any+1; i++) {
+                if(i==this.any){
+                    break;
+                }
+                diasTotales+=getDiesAny(i);
+            }
+            for (int i = 1; i < 13; i++) {
+                if (i==this.mes){
+                    diasTotales+=this.dia;
+                    break;
+                }
+                else{
+                    diasTotales+=getDiesMes(i, this.any);
+                }
+            }
+            return diasTotales;
         }
-}
+}           
