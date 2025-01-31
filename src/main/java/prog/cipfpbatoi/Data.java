@@ -6,18 +6,14 @@ package prog.cipfpbatoi;
 
 import java.util.Calendar;
 import java.util.StringTokenizer;
-
-
 /**
  *
  * @author batoi
  */
 public class Data {
-    
     private int dia;
     private int mes;
     private int any;
-
     /**
      *  Constructor por defecto
      *  Inicializa una fecha a la fecha del sistema
@@ -28,8 +24,6 @@ public class Data {
         this.mes = fecha.get(Calendar.MONTH)+1;
         this.any = fecha.get(Calendar.YEAR);
     }
-        
-        
     /**
      *  Inicializa la fecha a partir de los parámetros recibidos
      * @param dia
@@ -41,7 +35,6 @@ public class Data {
         this.mes=mes;
         this.any=any;
     }
-
     /**
      * Inicializa la fecha a partir de otra pasada en formato String dd/mm/yyyy
      *
@@ -53,8 +46,6 @@ public class Data {
         this.dia=Integer.parseInt(separador.nextToken());
         this.mes=Integer.parseInt(separador.nextToken());
         this.any=Integer.parseInt(separador.nextToken());
-            
-        
     }
         
     /**
@@ -68,7 +59,6 @@ public class Data {
         this.mes=mes;
         this.any=any;
     }
-
     /**
      * Creará y devolverá un nuevo objeto de la clase Data iniciado
      * con los valores que representa el objeto actual, es decir creará un clon exacto del objeto
@@ -79,7 +69,6 @@ public class Data {
         Data datos = new Data(this.dia,this.mes,this.any);
         return datos;
     }
-
     /**
      * (Ya implementado) Devuelve el día de la semana que representa por la Data actual
      * @return @dia
@@ -87,7 +76,6 @@ public class Data {
     public int getDia() {
         return this.dia;
     }
-
     /**
      * (Ya implementado) Devuelve el mes que representa la Data actual
      * @return @mes
@@ -95,7 +83,6 @@ public class Data {
     public int getMes(){
         return this.mes;
     }
-
     /**
      * (Ya implementado) Devuelve el año que representa la Data actual
      * @return @mes
@@ -103,7 +90,6 @@ public class Data {
     public int getAny(){
         return this.any;
     }
-
     /**
      * Muestra por pantalla la fecha en formato español dd-mm-yyyy
      */
@@ -115,7 +101,6 @@ public class Data {
             System.out.println(this.dia+"/"+this.mes+"/"+this.any);
         }
     }
-
     /**
      * Muestra por pantalla la fecha en formato inglés yyyy-mm-dd
      */
@@ -127,7 +112,6 @@ public class Data {
             System.out.println(this.any+"-"+this.mes+"-"+this.dia);
         }
     }
-
     /**
      * Muestra por pantalla la fecha en formato texto dd-mmmmm-yyyy
      */
@@ -167,7 +151,6 @@ public class Data {
         }
         return false;
     }
-
     /**
      * Retorna el dia correspondiente de la semana en formato String
      * @return String
@@ -191,7 +174,6 @@ public class Data {
         }
         return "";
     }
-    
     /**
      * Solo Festivo sábado o domingo
      * @return boolean
@@ -203,8 +185,6 @@ public class Data {
         }
         return false;
     }
-    
-
     /**
      * Obtiene el número de la semana del año de la fecha actual
      * @return 
@@ -213,7 +193,6 @@ public class Data {
         return 0;
     }
         //falta por hacer
-
     /**
      * Crea una nueva fecha con un número de días adicionales a la fecha actual
      *
@@ -221,11 +200,9 @@ public class Data {
      * @return
      */
     public Data afegir(long numDias) {
-
+        //el número negativo o positivo se refiere a que si se pasa un valor con un signo erroneo no realice ningun cálculo
         return null;
-        
     }
-
     /**
      * Crea una nueva fecha con un número de días anteriores a la fecha actual
      * @param numDias
@@ -234,12 +211,10 @@ public class Data {
     public Data restar(long numDias){
        return null;
     }
-    
     /**
      * Determina si una fecha está compuesta por datos correctos
      * @return 
      */
-
     public boolean isCorrecta(){
         boolean diaCorrecto=false;
         boolean mesCorrecto=false;
@@ -295,8 +270,6 @@ public class Data {
         }
         return correcto;
     }
-
-    
     /** Devuelve el valor absoluto de la diferencia de dias entre la fecha actual y la proporcionada
      * 
      * @param data
@@ -321,7 +294,6 @@ public class Data {
             }
             return diasTotaless;
     }
-    
     /**
      * Determina si una fecha es posterior a la fecha proporcionada
      * @param data
@@ -341,7 +313,6 @@ public class Data {
         return false;
         }
     }
-
     /**
      * Indica si el año pasado como argumento es bisiesto
      * Un año es bisiesto si es divisible por 4 a su vez 100 por 400
@@ -355,7 +326,6 @@ public class Data {
         }
         return false;
     }
-
     /**
      *  Calcula el número de días que tiene el mes representado por la fecha actual
      *
@@ -385,7 +355,6 @@ public class Data {
         }
         return diasMes;
     }
-
     /**
      * Calcula el número total de dias que tiene el año pasado como argumento
      *
@@ -401,7 +370,6 @@ public class Data {
         else{
             dias =365;
         }
-            
             return dias;
     }
         private String getMesEnFormarText(){//al poner estatic no podemos usar las varibles this.nombre

@@ -1,0 +1,83 @@
+* [33mcommit 8a13a2caa23e4928c365f1e67d1163f756ec7578[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Fri Jan 31 14:00:25 2025 +0100
+[31m|[m 
+[31m|[m     errores solucionados 87%
+[31m|[m 
+* [33mcommit 0a614bbb3aae56965320b267c695e68f62c493ca[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Fri Jan 31 00:32:54 2025 +0100
+[31m|[m 
+[31m|[m     Errores soluciones 82%
+[31m|[m 
+* [33mcommit 2afe587ca61be217fc27461d92654ce93b098c44[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Tue Jan 28 05:03:02 2025 +0100
+[31m|[m 
+[31m|[m     posterior 69%
+[31m|[m 
+* [33mcommit 03f189f90a109fe00469c941b2608cf4c548ae4b[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Wed Jan 29 16:54:45 2025 +0100
+[31m|[m 
+[31m|[m      error solucionado 65%
+[31m|[m 
+* [33mcommit 8380ae001aab93b0bf631a0f100805361c560b03[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Wed Jan 29 16:02:14 2025 +0100
+[31m|[m 
+[31m|[m     getDiesMes 60%
+[31m|[m 
+* [33mcommit bbb54070672e4efad94f25d26222f5986dca5b8d[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Wed Jan 29 15:28:59 2025 +0100
+[31m|[m 
+[31m|[m     51% es bisiesto
+[31m|[m 
+* [33mcommit 8395f7caad52a13e689f5a894db3033e25c3f03f[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Wed Jan 29 00:45:28 2025 +0100
+[31m|[m 
+[31m|[m     47V2
+[31m|[m 
+* [33mcommit 5530ce749ba9a2bd4220087460aead1eb8924bea[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Wed Jan 29 00:37:43 2025 +0100
+[31m|[m 
+[31m|[m     43
+[31m|[m 
+* [33mcommit 6482f766e6a7533495937cebdc239e86f45e459c[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Tue Jan 28 22:40:46 2025 +0100
+[31m|[m 
+[31m|[m     39.13 completado
+[31m|[m 
+* [33mcommit 77c9f91ff1261520dbe17f91d59d674de849dab2[m
+[31m|[m Author: Guillem Alfaro Vicedo <relatosguillem@gmail.com>
+[31m|[m Date:   Tue Jan 28 22:16:45 2025 +0100
+[31m|[m 
+[31m|[m     testSet_Clone/constructor1_3parametros correctos
+[31m|[m 
+* [33mcommit 5fd4b3235adebe36b8a2083f31dbf3fc692a58b0[m
+[31m|[m Author: Roberto Hidalgo <rhidalgocipfpbatoi@gmail.com>
+[31m|[m Date:   Mon Jan 13 09:58:25 2025 +0100
+[31m|[m 
+[31m|[m     Cambiado método clone a copy
+[31m|[m 
+* [33mcommit d5964eeaae496aa48e8badac0232b6954a597666[m
+[31m|[m Author: Roberto Hidalgo <rhidalgocipfpbatoi@gmail.com>
+[31m|[m Date:   Tue Jan 7 09:32:48 2025 +0100
+[31m|[m 
+[31m|[m     Corregido fichero de test
+[31m|[m 
+* [33mcommit d8178f6a37ab2c339bd58e053f2f18f628dd725c[m
+[31m|[m Author: Roberto Hidalgo <rhidalgocipfpbatoi@gmail.com>
+[31m|[m Date:   Fri Dec 13 15:42:14 2024 +0100
+[31m|[m 
+[31m|[m     Changes in Data methods
+[31m|[m 
+* [33mcommit c2a7608a948c265e1f09e09670018e54b37cab82[m
+  Author: Roberto Hidalgo <rhidalgocipfpbatoi@gmail.com>
+  Date:   Fri Dec 13 13:22:39 2024 +0100
+  
+      Initial commit
