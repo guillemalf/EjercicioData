@@ -223,6 +223,7 @@ public class Data {
     public Data afegir(long numDias) {
 
         return null;
+        
     }
 
     /**
@@ -231,7 +232,7 @@ public class Data {
      * @return 
      */
     public Data restar(long numDias){
-        return null;
+       return null;
     }
     
     /**
@@ -240,7 +241,59 @@ public class Data {
      */
 
     public boolean isCorrecta(){
-        return false;
+        boolean diaCorrecto=false;
+        boolean mesCorrecto=false;
+        boolean anyCorrecto=false;
+        boolean correcto=false;
+        switch (this.mes){
+            case 1,3,5,7,8,10,12://31 días
+                if (this.dia>31||this.dia<1){
+                    diaCorrecto=false;
+                }
+                else{
+                    diaCorrecto=true;
+                }
+                break;
+            
+            case 11,4,6,9://30 días
+                if (this.dia>30||this.dia<1){
+                    diaCorrecto=false;
+                }
+                else{
+                    diaCorrecto=true;
+                }
+                break;
+            case 2://febrero 28 o  29 depende
+                if (isBisiesto(this.any)){//29
+                    if (this.dia>29||this.dia<1){
+                    diaCorrecto=false;
+                }
+                else{
+                    diaCorrecto=true;
+                }
+                }
+                else{//28
+                    if (this.dia>28||this.dia<1){
+                    diaCorrecto=false;
+                }
+                else{
+                    diaCorrecto=true;
+                }
+                }
+        }
+        if(this.mes>0||this.mes<13){
+            mesCorrecto=true;
+        }
+        else{
+            mesCorrecto=false;
+        }
+        if(diaCorrecto&&mesCorrecto){
+           correcto =true;
+       }
+        else{
+            correcto=false;
+        }
+        return correcto;
     }
 
     
