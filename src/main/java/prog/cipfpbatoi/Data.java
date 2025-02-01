@@ -94,22 +94,36 @@ public class Data {
      * Muestra por pantalla la fecha en formato español dd-mm-yyyy
      */
     public void mostrarEnFormatES()  {
-        if(this.mes>0&&this.mes<10){
-            System.out.println(this.dia+"/0"+this.mes+"/"+this.any);
+        String dia;
+        if(this.dia<10&&this.dia>0){
+            dia ="0"+this.dia;
         }
         else{
-            System.out.println(this.dia+"/"+this.mes+"/"+this.any);
+            dia=""+this.dia;
+        }
+        if(this.mes>0&&this.mes<10){
+            System.out.println(dia+"/0"+this.mes+"/"+this.any);
+        }
+        else{
+            System.out.println(dia+"/"+this.mes+"/"+this.any);
         }
     }
     /**
      * Muestra por pantalla la fecha en formato inglés yyyy-mm-dd
      */
     public void mostrarEnFormatGB() {
-        if(this.mes>0&&this.mes<10){
-            System.out.println(this.any+"-0"+this.mes+"-"+this.dia);
+        String dia;
+        if(this.dia<10&&this.dia>0){
+            dia ="0"+this.dia;
         }
         else{
-            System.out.println(this.any+"-"+this.mes+"-"+this.dia);
+            dia=""+this.dia;
+        }
+        if(this.mes>0&&this.mes<10){
+            System.out.println(this.any+"-0"+this.mes+"-"+dia);
+        }
+        else{
+            System.out.println(this.any+"-"+this.mes+"-"+dia);
         }
     }
     /**
@@ -200,8 +214,77 @@ public class Data {
      * @return
      */
     public Data afegir(long numDias) {
-        //el número negativo o positivo se refiere a que si se pasa un valor con un signo erroneo no realice ningun cálculo
-        return null;
+        
+        Data fecha = new Data(this.dia,this.mes,this.any);
+        while (numDias!=0){
+            switch (fecha.mes){
+                case 1,3,5,7,8,10,12 -> {
+                    //31 días
+                    
+                    while(numDias!=0&&fecha.dia<31){
+                        fecha.dia+=1;
+                        numDias-=1;
+                    }
+                    if (fecha.dia==31&&fecha.mes==12&&numDias!=0){
+                        fecha.dia=1;
+                        numDias-=1;
+                        fecha.mes=1;
+                        fecha.any+=1;
+                        break;
+                    }
+                    
+                    if(fecha.dia==31&&numDias!=0){
+                        fecha.mes+=1;
+                        numDias-=1;
+                        fecha.dia=1;
+                        break;
+                    }
+                }
+                case 11,4,6,9 -> {
+                    while(numDias!=0&&fecha.dia<30){
+                        fecha.dia+=1;
+                        numDias-=1;
+                    }
+                    if(fecha.dia==30&&numDias!=0){
+                        fecha.mes+=1;
+                        numDias-=1;
+                        fecha.dia=1;
+                        break;
+                    }
+                }
+                    
+                case 2 -> {
+                    //febrero 28 o  29 depende
+                    if (isBisiesto(fecha.any)) {
+                        //29
+                        while(numDias!=0&&fecha.dia<29){
+                            fecha.dia+=1;
+                            numDias-=1;
+                        }
+                        if(fecha.dia==29&&numDias!=0){
+                        fecha.mes+=1;
+                        numDias-=1;
+                        fecha.dia=1;
+                        break;
+                    }
+                    } else {
+                        //28
+                        while(numDias!=0&&fecha.dia<28){
+                            fecha.dia+=1;
+                            numDias-=1;
+                        }
+                        if(fecha.dia==28&&numDias!=0){
+                            fecha.mes+=1;
+                            numDias-=1;
+                            fecha.dia=1;
+                        }
+                    }
+                }
+                    
+                    
+            }
+        }
+    return fecha;
     }
     /**
      * Crea una nueva fecha con un número de días anteriores a la fecha actual
@@ -209,6 +292,7 @@ public class Data {
      * @return 
      */
     public Data restar(long numDias){
+        Data fecha = new Data(this.dia,this.mes,this.any);
        return null;
     }
     /**
@@ -447,4 +531,14 @@ public class Data {
             }
             return diasTotales;
         }
-}           
+        public static void main(String[] args) {
+        Data hola = new Data (1,1,2022);
+        Data hola1 = new Data ();
+        hola1=hola.afegir(20035);
+            System.out.println(hola1.dia);
+            System.out.println(hola1.mes);
+            System.out.println(hola1.any);
+        
+    }
+} 
+    
