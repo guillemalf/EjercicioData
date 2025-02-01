@@ -292,9 +292,89 @@ public class Data {
      * @return 
      */
     public Data restar(long numDias){
+        
         Data fecha = new Data(this.dia,this.mes,this.any);
-       return null;
+        while (numDias!=0){
+            switch (fecha.mes){
+                case 1,5,7,8,10,12 -> {
+                    //31 días
+                    
+                    while(numDias!=0&&fecha.dia>1){
+                        fecha.dia-=1;
+                        numDias-=1;
+                    }
+                    
+                    
+                    if (fecha.dia==1&&fecha.mes==1&&numDias!=0){
+                        fecha.dia=31;
+                        numDias-=1;
+                        fecha.mes=12;
+                        fecha.any-=1;
+                    }
+                    
+                    if(fecha.dia==1&&numDias!=0){
+                        if(fecha.mes==8){
+                            fecha.dia=31;
+                        }
+                        else{
+                            fecha.dia=30;
+                        }
+                        fecha.mes-=1;
+                        numDias-=1;  
+                    }
+                    break;
+                }
+                
+                case 3->{
+                    while(numDias!=0&&fecha.dia>1){
+                        fecha.dia-=1;
+                        numDias-=1;
+                    }
+                    if(fecha.dia==1&&numDias!=0){
+                        fecha.mes-=1;
+                        numDias-=1;
+                        if(isBisiesto(fecha.any)){
+                            fecha.dia=29;
+                        }
+                        else{
+                            fecha.dia=28;
+                        }
+                    }
+                        break;
+                        }
+                
+                case 11,4,6,9 -> {
+                    while(numDias!=0&&fecha.dia>1){
+                        fecha.dia-=1;
+                        numDias-=1;
+                    }
+                    if(fecha.dia==1&&numDias!=0){
+                        fecha.mes-=1;
+                        numDias-=1;
+                        fecha.dia=31;
+                        break;
+                    }
+                }
+                case 2 -> {
+                    //febrero 28 o  29 depende
+                        //29
+                        while(numDias!=0&&fecha.dia>1){
+                            fecha.dia-=1;
+                            numDias-=1;
+                        }
+                        if(fecha.dia==1&&numDias!=0){
+                        fecha.mes-=1;
+                        numDias-=1;
+                        fecha.dia=31;
+                        break;
+                        }
+                }  
+                
+            }
+        }
+    return fecha;
     }
+
     /**
      * Determina si una fecha está compuesta por datos correctos
      * @return 
@@ -532,12 +612,14 @@ public class Data {
             return diasTotales;
         }
         public static void main(String[] args) {
-        Data hola = new Data (1,1,2022);
+            
+        Data hola = new Data (1,8,2022);
         Data hola1 = new Data ();
-        hola1=hola.afegir(20035);
+        hola1=hola.restar(15254);
             System.out.println(hola1.dia);
             System.out.println(hola1.mes);
             System.out.println(hola1.any);
+
         
     }
 } 
