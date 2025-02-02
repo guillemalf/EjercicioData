@@ -18,12 +18,14 @@ public class GestorIO {
         if(entrada.hasNextInt()){
             numero =entrada.nextInt();
         }
+        entrada.close();
         return numero;
     }
     public static String llegirText(String mensaje){
         System.out.println(mensaje);
         Scanner entrada = new Scanner(System.in);
         String texto = entrada.next();
+        entrada.close();
         return texto;
     }
      public static boolean solicitarConfirmacion(String mensaje){
@@ -34,6 +36,7 @@ public class GestorIO {
             respuesta = entrada.nextLine();
          }
         while(!respuesta.equals("s")&&!respuesta.equals("n"));
+        entrada.close();
         return true;
      }
     

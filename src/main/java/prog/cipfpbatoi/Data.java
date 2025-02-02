@@ -204,7 +204,36 @@ public class Data {
      * @return 
      */
     public int getNumeroSetmana() {
-        return 0;
+        int diasTotales=0;
+        int dia=1;
+        int semanas=0;
+            switch (mes){
+            case 1,3,5,7,8,10,12://31 días
+                for (int u = 0; u < 10; u++) {
+                    for (int i = 1; i < this.any+1; i++) {
+                    if(i==this.any){
+                        break;
+                    }
+                    diasTotales+=getDiesAny(i);
+                }
+                for (int i = 1; i < 13; i++) {
+                    if (i==this.mes){
+                        diasTotales+=dia;
+                        break;
+                    }
+                    else{
+                        diasTotales+=getDiesMes(i, this.any);
+                    }
+                }
+                dia+=1;
+                if(diasTotales%7==6){
+                    semanas+=1;
+                }
+                }
+                break;
+        }
+                
+            return semanas;
     }
         //falta por hacer
     /**
@@ -220,7 +249,6 @@ public class Data {
             switch (fecha.mes){
                 case 1,3,5,7,8,10,12 -> {
                     //31 días
-                    
                     while(numDias!=0&&fecha.dia<31){
                         fecha.dia+=1;
                         numDias-=1;
@@ -232,7 +260,6 @@ public class Data {
                         fecha.any+=1;
                         break;
                     }
-                    
                     if(fecha.dia==31&&numDias!=0){
                         fecha.mes+=1;
                         numDias-=1;
@@ -251,8 +278,7 @@ public class Data {
                         fecha.dia=1;
                         break;
                     }
-                }
-                    
+                } 
                 case 2 -> {
                     //febrero 28 o  29 depende
                     if (isBisiesto(fecha.any)) {
@@ -279,9 +305,7 @@ public class Data {
                             fecha.dia=1;
                         }
                     }
-                }
-                    
-                    
+                }  
             }
         }
     return fecha;
@@ -298,20 +322,16 @@ public class Data {
             switch (fecha.mes){
                 case 1,5,7,8,10,12 -> {
                     //31 días
-                    
                     while(numDias!=0&&fecha.dia>1){
                         fecha.dia-=1;
                         numDias-=1;
                     }
-                    
-                    
                     if (fecha.dia==1&&fecha.mes==1&&numDias!=0){
                         fecha.dia=31;
                         numDias-=1;
                         fecha.mes=12;
                         fecha.any-=1;
                     }
-                    
                     if(fecha.dia==1&&numDias!=0){
                         if(fecha.mes==8){
                             fecha.dia=31;
@@ -324,7 +344,6 @@ public class Data {
                     }
                     break;
                 }
-                
                 case 3->{
                     while(numDias!=0&&fecha.dia>1){
                         fecha.dia-=1;
@@ -342,7 +361,6 @@ public class Data {
                     }
                         break;
                         }
-                
                 case 11,4,6,9 -> {
                     while(numDias!=0&&fecha.dia>1){
                         fecha.dia-=1;
@@ -369,12 +387,10 @@ public class Data {
                         break;
                         }
                 }  
-                
             }
         }
     return fecha;
     }
-
     /**
      * Determina si una fecha está compuesta por datos correctos
      * @return 
@@ -576,7 +592,6 @@ public class Data {
                 }
     }
     return "";
-        
     }
         private static int getDiesTranscorregutsEnAny(int mes,int dia,int año){
         int diasTotales=0;
@@ -591,7 +606,6 @@ public class Data {
             }
             return diasTotales;          
     }
- 
         private int getDiesTranscorregutOrigen(){
             int diasTotales=0;
             for (int i = 1; i < this.any+1; i++) {
@@ -612,15 +626,8 @@ public class Data {
             return diasTotales;
         }
         public static void main(String[] args) {
-            
-        Data hola = new Data (1,8,2022);
-        Data hola1 = new Data ();
-        hola1=hola.restar(15254);
-            System.out.println(hola1.dia);
-            System.out.println(hola1.mes);
-            System.out.println(hola1.any);
-
-        
+            Data hola = new Data();
+            System.out.println(hola.getDiaSetmana()); 
     }
 } 
     

@@ -8,6 +8,6 @@ package prog.cipfpbatoi;
  *
  * @author batoi
  */
-public class TipusEsdeviment {
-    
+public enum TipusEsdeviment {
+    ANIVERSARI,FESTIU,ESPECIAL,ALTRES
 }
